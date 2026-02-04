@@ -23,7 +23,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
+
+
+import androidx.annotation.NonNull;
 
 import com.aveeopen.Common.MediaStoreUtils;
 import com.aveeopen.PlayerCore;
@@ -370,7 +372,7 @@ public class PlaylistSong extends AsyncTask<Object, Integer, PlaylistSong.Data> 
         return data;
     }
 
-    public DataDetails getDataDetailsBlocking(Context context) {
+    public DataDetails getDataDetailsBlocking(Context context)  {
         Data data = getData();
         if (data == emptyData || data == loadingData || data == notsetData) {
             data = acquireData(context, idPath);

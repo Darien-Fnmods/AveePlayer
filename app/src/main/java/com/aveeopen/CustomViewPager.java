@@ -16,9 +16,11 @@
 
 package com.aveeopen;
 
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewPager;
+
 import android.view.MotionEvent;
+
+import androidx.core.view.MotionEventCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import com.aveeopen.R;
 

@@ -68,7 +68,7 @@ public class Footer1ViewHolder
                     adViewLastTimeLoadSuccess = true;
                 }
 
-                @Override
+               // @Override
                 public void onAdFailedToLoad(int errorCode) {
                     adView.setVisibility(ViewGroup.GONE);
                     adViewLastTimeLoadSuccess = false;

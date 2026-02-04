@@ -18,8 +18,9 @@ package com.aveeopen.comp.LibraryQueueUI;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,7 @@ public class Fragment1 extends LibraryQueueFragmentBase {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_1, container, false);
-        setStatusBarDimensions(rootView.findViewById(R.id.viewStatusBarBg));
+       // setStatusBarDimensions(rootView.findViewById(R.id.viewStatusBarBg));
         recyclerViewItems = (RecyclerView) rootView.findViewById(R.id.recyclerViewItems);
         {
             xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller fastScroller =

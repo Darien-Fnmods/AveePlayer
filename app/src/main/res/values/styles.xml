@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppThemeSettings" parent="android:Theme.Holo.Light">
+    <style name="AppThemeSettings" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:actionModeStyle">@style/ActionModeStyle</item>
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyleColored</item>
         <item name="colorPrimary">@color/settings_app_color</item>
@@ -10,7 +10,7 @@
         <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
 
-    <style name="AppBaseThemeLight" parent="android:Theme.Holo.Light">
+    <style name="AppBaseThemeLight" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:actionModeStyle">@style/ActionModeStyle</item>
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
@@ -27,7 +27,7 @@
         <item name="listItemButtonColor">@color/text_color_m3</item>
     </style>
 
-    <style name="AppBaseThemeDark" parent="android:Theme.Holo">
+    <style name="AppBaseThemeDark" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:actionModeStyle">@style/ActionModeStyle</item>
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
@@ -210,5 +210,10 @@
     </style>
     <style name="AppTheme5.PopupMenu" parent="android:Widget.Holo.Light.PopupMenu">
         <item name="android:popupBackground">@color/theme5_menuBg</item>
+    </style>
+
+    <style name="SeekBarAppTheme" parent="android:Widget.Holo.Light.SeekBar">
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:thumbOffset">18dp</item>
     </style>
 </resources>

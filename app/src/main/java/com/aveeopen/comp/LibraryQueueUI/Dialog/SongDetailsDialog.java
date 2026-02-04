@@ -35,6 +35,7 @@ import com.aveeopen.comp.AlbumArt.AlbumArtRequest;
 import com.aveeopen.comp.playback.Song.PlaylistSong;
 import com.aveeopen.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SongDetailsDialog extends DialogFragment {
@@ -49,13 +50,13 @@ public class SongDetailsDialog extends DialogFragment {
     private static final String arg5 = "arg5";
     private static final String arg6 = "arg6";
 
-    public static SongDetailsDialog createAndShowDialog(FragmentManager fragmentManager, Context context, PlaylistSong songs) {
+    public static SongDetailsDialog createAndShowDialog(FragmentManager fragmentManager, Context context, PlaylistSong songs)  {
         SongDetailsDialog dialog = newInstance(context, songs);
         dialog.show(fragmentManager, "SongDetailsDialog");
         return dialog;
     }
 
-    private static SongDetailsDialog newInstance(Context context, PlaylistSong songs) {
+    private static SongDetailsDialog newInstance(Context context, PlaylistSong songs)  {
         SongDetailsDialog dialog = new SongDetailsDialog();
 
         ArrayList<String> infoStrings = new ArrayList<>();

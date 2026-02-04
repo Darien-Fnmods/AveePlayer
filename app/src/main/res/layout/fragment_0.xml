@@ -42,13 +42,13 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/design_height_divider"
+            android:layout_height="0dp"
             android:layout_below="@+id/tabStripPath"
             android:background="?attr/colorPrimary" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="0dp"
             android:layout_below="@id/viewActionBarBg"
             android:background="@drawable/actionbar_shadow_2x" />
 
@@ -68,7 +68,7 @@
         android:layout_height="8dp"
         android:layout_alignBottom="@id/backSwipeProgressBg"
         android:layout_alignParentLeft="true"
-        android:background="@color/text_color_m3" />
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewItems"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

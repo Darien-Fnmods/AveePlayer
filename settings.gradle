@@ -1,1 +1,1 @@
-include ':app', ':ColorMixer'
+include ':app'

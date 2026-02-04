@@ -16,6 +16,7 @@
 
 package com.aveeopen.Common.Events;
 
+import java.io.IOException;
 import java.util.List;
 
 public class WeakEvent2<T1, T2> {
@@ -32,7 +33,7 @@ public class WeakEvent2<T1, T2> {
         return listener;
     }
 
-    public void invoke(T1 arg1, T2 arg2) {
+    public void invoke(T1 arg1, T2 arg2)  {
 
         for (Handler<T1, T2> listener : (Iterable<Handler<T1, T2>>) listeners.keySet()) {
             if (listener != null)

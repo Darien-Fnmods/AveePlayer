@@ -438,16 +438,7 @@ public class SeekArc extends View {
 		invalidate();
 	}
 
-	/**
-	 * Sets a listener to receive notifications of changes to the SeekArc's
-	 * progress level. Also provides notifications of when the user starts and
-	 * stops a touch gesture within the SeekArc.
-	 * 
-	 * @param l
-	 *            The seek bar notification listener
-	 * 
-	 * @see SeekArc.OnSeekBarChangeListener
-	 */
+
 	public void setOnSeekArcChangeListener(OnSeekArcChangeListener l) {
 		mOnSeekArcChangeListener = l;
 	}

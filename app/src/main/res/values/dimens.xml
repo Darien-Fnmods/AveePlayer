@@ -26,4 +26,5 @@
     <dimen name="textSizeM2">14sp</dimen>
     <dimen name="textSizeM3">12sp</dimen>
     <dimen name="textSizeM4">10sp</dimen>
+
 </resources>

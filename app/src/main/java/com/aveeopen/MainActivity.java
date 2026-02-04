@@ -16,10 +16,8 @@
 
 package com.aveeopen;
 
-import android.app.ActionBar;
+
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -30,10 +28,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -44,6 +38,20 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 
 import com.aveeopen.Common.Boast;
 import com.aveeopen.Common.Events.WeakDelegate3;
@@ -76,7 +84,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     public static final int LIBRARY_PAGE_INDEX = 0;
     public static final int QUEUE_PAGE_INDEX = 1;
@@ -126,6 +134,10 @@ public class MainActivity extends Activity {
 
     private Handler handler;
     private List<Object> listenerReferenceHolder = new LinkedList<>();
+
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toogle;
 
     public MainActivity() {
 
@@ -246,7 +258,7 @@ public class MainActivity extends Activity {
                 this.findViewById(R.id.layoutMediaControlsNarrow),
                 this.findViewById(R.id.layoutMediaControlsContainer));
 
-        sectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         viewPager = (CustomViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(sectionsPagerAdapter);
         viewPager.setOnSwipeOutListener(new CustomViewPager.OnSwipeOutListener() {
@@ -286,7 +298,6 @@ public class MainActivity extends Activity {
 
             final List<PlaylistSong> songList = new ArrayList<>();
             songList.add(songOpened);
-
             onPreviewOpen.invoke(songList, 0);
         } else {
             int pageInx = AppPreferences.createOrGetInstance().getInt(AppPreferences.PREF_Int_mainPageIndex);
@@ -314,6 +325,13 @@ public class MainActivity extends Activity {
         Message newMsg = handler.obtainMessage(MSG_TICK10);
         handler.removeMessages(MSG_TICK10);
         handler.sendMessageDelayed(newMsg, 10000);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toogle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        drawerLayout.addDrawerListener(toogle);
+        toogle.syncState();
+
     }
 
     @Override
@@ -608,7 +626,7 @@ public class MainActivity extends Activity {
         if (viewPager == null || sectionsPagerAdapter == null) return null;
         FragmentPagerAdapter fragmentPagerAdapter = sectionsPagerAdapter;
         ViewPager viewPager = this.viewPager;
-        return getFragmentManager().findFragmentByTag(
+        return getSupportFragmentManager().findFragmentByTag(
                 "android:switcher:" + viewPager.getId() + ":"
                         + fragmentPagerAdapter.getItemId(position));
     }
@@ -630,7 +648,7 @@ public class MainActivity extends Activity {
     }
 
     public void toggleShowControls(int pagePosition) {
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         showControls(actionBar != null && !actionBar.isShowing(), pagePosition);
     }
 
@@ -640,14 +658,14 @@ public class MainActivity extends Activity {
 
     private void showControls(boolean show, int pagePosition, boolean eventFromSystemUiHider) {
         resetVideoMaximizeTimeout(show);
-
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
 
         if (show) {
             if (actionBar != null) {
                 if (pagePosition == VISUAL_PAGE_INDEX) {
                     actionBar.setDisplayShowTitleEnabled(false);
                     actionBar.setDisplayShowHomeEnabled(false);
+
                     actionBar.show();
                 } else {
                     actionBar.setDisplayShowTitleEnabled(true);
@@ -671,7 +689,7 @@ public class MainActivity extends Activity {
     }
 
     public void updateActionBar(PlaylistSong.Data songData) {
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null) {
             actionBar.setTitle(songData.trackName);
@@ -679,33 +697,33 @@ public class MainActivity extends Activity {
                 actionBar.setSubtitle(songData.artistName);
             else
                 actionBar.setSubtitle("");
-            actionBar.setIcon(R.drawable.placeholderart4);
+          //  actionBar.setIcon(R.drawable.placeholderart4);
         }
 
-            ImageLoadedListener imageLoadedListener = new ImageLoadedListener() {
-                Object object1;
+        ImageLoadedListener imageLoadedListener = new ImageLoadedListener() {
+            Object object1;
 
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, String url00, String url0, String url1) {
-                    if (bitmap != null)
-                        getActionBar().setIcon(new BitmapDrawable(MainActivity.this.getResources(), bitmap));
-                    else
-                        getActionBar().setIcon(R.drawable.placeholderart4);
-                }
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, String url00, String url0, String url1) {
+//                if (bitmap != null)
+//                   //getSupportActionBar().setIcon(new BitmapDrawable(MainActivity.this.getResources(), bitmap));
+//                else
+//                  // getSupportActionBar().setIcon(R.drawable.placeholderart4);
+            }
 
-                @Override
-                public void setUserObject1(Object obj1) {
-                    object1 = obj1;
-                }
-            };
+            @Override
+            public void setUserObject1(Object obj1) {
+                object1 = obj1;
+            }
+        };
 
-            onRequestAlbumArtLarge.invoke(new AlbumArtRequest(songData.getVideoThumbDataSourceAsStr(),
-                    songData.getAlbumArtPath0Str(),
-                    songData.getAlbumArtPath1Str(),
-                    songData.getAlbumArtGenerateStr()),
-                    imageLoadedListener, 200, 200);
+        onRequestAlbumArtLarge.invoke(new AlbumArtRequest(songData.getVideoThumbDataSourceAsStr(),
+                        songData.getAlbumArtPath0Str(),
+                        songData.getAlbumArtPath1Str(),
+                        songData.getAlbumArtGenerateStr()),
+                imageLoadedListener, 200, 200);
 
-            //albumArtCore.loadAlbumArtLarge(
+        //albumArtCore.loadAlbumArtLarge(
 
     }
 

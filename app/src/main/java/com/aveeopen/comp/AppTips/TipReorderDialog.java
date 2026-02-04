@@ -28,6 +28,8 @@ import android.view.View;
 import com.aveeopen.comp.AppPreferences.AppPreferences;
 import com.aveeopen.R;
 
+import java.io.IOException;
+
 public class TipReorderDialog extends DialogFragment {
 
     public static TipReorderDialog createAndShowTipReorderDialog(FragmentManager fragmentManager) {

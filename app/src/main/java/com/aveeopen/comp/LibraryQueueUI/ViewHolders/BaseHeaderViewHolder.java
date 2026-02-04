@@ -66,7 +66,7 @@ public abstract class BaseHeaderViewHolder extends BaseViewHolder {
                     mAdViewLastTimeLoadSuccess = true;
                 }
 
-                @Override
+                //@Override
                 public void onAdFailedToLoad(int errorCode) {
                     adView.setVisibility(ViewGroup.GONE);
                     mAdViewLastTimeLoadSuccess = false;

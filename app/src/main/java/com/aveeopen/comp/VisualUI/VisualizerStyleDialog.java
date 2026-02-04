@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class VisualizerStyleDialog extends DialogFragment {
+public class    VisualizerStyleDialog extends DialogFragment {
 
     public static WeakEventR1<List<VisualizerThemeInfo> /*listOut*/, Integer> onRequestSkinThemePresetList = new WeakEventR1<>();
     public static WeakEvent1<VisualizerThemeInfo /*presetInfo*/> onSkinThemePresetSelected = new WeakEvent1<>();

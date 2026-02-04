@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layoutMediaControls"
     android:layout_width="match_parent"
     android:layout_height="@dimen/player_controls_height"
@@ -18,13 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/seekBarSongProgress"
         android:layout_alignBottom="@+id/seekBarSongProgress"
-        android:layout_alignParentLeft="true"
-        android:text="00:00"
+        android:layout_alignParentStart="true"
+        android:text="@string/timer_song"
         android:textColor="@color/white_alpha_2"
         android:textSize="@dimen/textSizeM1"
         android:paddingTop="8dp"
         android:clickable="false"
-        android:longClickable="false"/>
+        android:longClickable="false" />
 
     <TextView
         android:id="@+id/txtSongDuration"
@@ -32,20 +33,20 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/seekBarSongProgress"
         android:layout_alignBottom="@+id/seekBarSongProgress"
-        android:layout_alignParentRight="true"
-        android:text="00:00"
+        android:layout_alignParentEnd="true"
+        android:text="@string/timerss"
         android:textColor="@color/white_alpha_2"
         android:textSize="@dimen/textSizeM1"
         android:paddingTop="8dp"
         android:clickable="false"
-        android:longClickable="false"/>
+        android:longClickable="false" />
 
     <SeekBar
         android:id="@+id/seekBarSongProgress"
         android:layout_width="match_parent"
         android:layout_height="34dp"
-        android:layout_toRightOf="@id/txtSongCurrentTime"
-        android:layout_toLeftOf="@id/txtSongDuration"
+        android:layout_toEndOf="@id/txtSongCurrentTime"
+        android:layout_toStartOf="@id/txtSongDuration"
         android:layout_alignParentTop="true"
         android:progressDrawable="?attr/songProgressBar"
         android:paddingTop="6dp"
@@ -62,8 +63,8 @@
         android:layout_height="34dp"
         android:layout_alignTop="@id/seekBarSongProgress"
         android:layout_alignBottom="@id/seekBarSongProgress"
-        android:layout_toRightOf="@id/txtSongCurrentTime"
-        android:layout_toLeftOf="@id/txtSongDuration"
+        android:layout_toEndOf="@id/txtSongCurrentTime"
+        android:layout_toStartOf="@id/txtSongDuration"
         android:paddingTop="8dp"
         android:paddingBottom="0dp"
         android:paddingLeft="8dp"
@@ -72,7 +73,7 @@
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:freezesText="true"
-        android:text="title"/>
+        android:text="title" />
 
     <ImageButton
         android:id="@+id/btnPause"
@@ -83,7 +84,7 @@
         android:layout_centerHorizontal="true"
         android:minWidth="70dip"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"/>
+        app:tint="?attr/buttonColorLight" />
 
     <ImageView
         android:id="@+id/viewOverlayPause"
@@ -91,20 +92,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:tint="?attr/buttonColorLight"
-        android:src="@drawable/ic_ctrl_plring_l"/>
+        app:tint="?attr/buttonColorLight"
+        android:src="@drawable/ic_ctrl_plring_l" />
 
     <ImageButton
         android:id="@+id/btnPrev"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/btnPause"
+        android:layout_toStartOf="@id/btnPause"
         android:layout_alignParentBottom="true"
         android:minHeight="48dip"
         android:minWidth="70dip"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"/>
+        app:tint="?attr/buttonColorLight" />
 
     <ImageButton
         android:id="@+id/btnNext"
@@ -112,10 +113,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnPause"
+        android:layout_toEndOf="@+id/btnPause"
         android:minWidth="70dip"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"/>
+        app:tint="?attr/buttonColorLight" />
 
     <ImageButton
         android:id="@+id/btnVolume"
@@ -123,11 +124,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/btnPrev"
+        android:layout_toStartOf="@id/btnPrev"
         android:minWidth="70dip"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"
-        android:src="@drawable/ic_speaker_s"/>
+        app:tint="?attr/buttonColorLight"
+        android:src="@drawable/ic_speaker_s" />
 
     <ImageButton
         android:id="@+id/btnMediaControlsOverflow"
@@ -135,10 +136,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/btnNext"
+        android:layout_toEndOf="@id/btnNext"
         android:minWidth="70dip"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"
-        android:src="@drawable/ic_overflowh_2_s"/>
+        android:src="@drawable/ic_overflowh_2_s"
+        app:tint="?attr/buttonColorLight" />
 
 </RelativeLayout>

@@ -16,9 +16,10 @@
 
 package com.aveeopen.comp.ContextualActionBar;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
 import android.view.View;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 
 import com.aveeopen.comp.LibraryQueueUI.ViewHolders.ContentItemViewHolder;
 import com.aveeopen.ContextData;

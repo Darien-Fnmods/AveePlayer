@@ -16,7 +16,7 @@
 
 package com.aveeopen.comp.LibraryQueueUI.ViewHolders;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.aveeopen.comp.LibraryQueueUI.Containers.Base.IContainerData;

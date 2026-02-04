@@ -16,12 +16,15 @@
 
 package com.aveeopen.comp.LibraryQueueUI;
 
-import android.app.Fragment;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+
+import androidx.fragment.app.Fragment;
 
 import com.aveeopen.Common.Events.WeakEvent1;
 import com.aveeopen.Common.Events.WeakEvent2;

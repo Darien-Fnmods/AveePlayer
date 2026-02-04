@@ -22,7 +22,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Looper;
-import android.support.annotation.AttrRes;
+
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -34,6 +34,8 @@ import android.widget.ImageView;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import androidx.annotation.AttrRes;
 
 import junit.framework.Assert;
 

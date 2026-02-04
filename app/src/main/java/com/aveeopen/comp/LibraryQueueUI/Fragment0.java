@@ -18,11 +18,13 @@ package com.aveeopen.comp.LibraryQueueUI;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.aveeopen.Common.UtilsUI;
@@ -85,7 +87,7 @@ public class Fragment0 extends LibraryQueueFragmentBase {
 
         View rootView = inflater.inflate(R.layout.fragment_0, container, false);
 
-        setStatusBarDimensions(rootView.findViewById(R.id.viewStatusBarBg));
+       // setStatusBarDimensions(rootView.findViewById(R.id.viewStatusBarBg));
 
         backSwipeProgress = rootView.findViewById(R.id.backSwipeProgress);
         navigateForBackwardProgress(0.0f);

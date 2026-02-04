@@ -1,5 +1,22 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Local config
+local.properties
+
+# Logs
+*.log
+
+# OS
 .DS_Store
-/build
+Thumbs.db
+
+# APK / AAB
+*.apk
+*.aab

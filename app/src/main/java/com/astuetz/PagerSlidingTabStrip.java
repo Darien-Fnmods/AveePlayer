@@ -29,11 +29,9 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.util.Pair;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +42,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 //import com.astuetz.pagerslidingtabstrip.R;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.aveeopen.R;
 
@@ -89,7 +89,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private final PageListener pageListener = new PageListener();
     private OnTabReselectedListener tabReselectedListener = null;
-    public OnPageChangeListener delegatePageListener;
+    public ViewPager.OnPageChangeListener delegatePageListener;
 
     private LinearLayout tabsContainer;
     private ViewPager pager;
@@ -253,7 +253,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
         }
 
-        pager.setOnPageChangeListener(pageListener);
+        pager.setOnPageChangeListener((ViewPager.OnPageChangeListener) pageListener);
         pager.getAdapter().registerDataSetObserver(adapterObserver);
         adapterObserver.setAttached(true);
         notifyDataSetChanged();
@@ -487,11 +487,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.tabReselectedListener = tabReselectedListener;
     }
 
-    public void setOnPageChangeListener(OnPageChangeListener listener) {
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
         this.delegatePageListener = listener;
     }
 
-    private class PageListener implements OnPageChangeListener {
+    private class PageListener implements ViewPager.OnPageChangeListener {
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

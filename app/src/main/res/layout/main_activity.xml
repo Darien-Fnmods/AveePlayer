@@ -1,45 +1,76 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.aveeopen.CustomViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MyActivity"/>
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:fitsSystemWindows="true">
-
-        <RelativeLayout
-            android:id="@+id/layoutMediaControlsContainer"
+        android:layout_height="match_parent">
+        <com.aveeopen.CustomViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/player_controls_height_plus10"
-            android:layout_alignParentBottom="true"
-            android:clickable="true"
-            android:longClickable="true">
-
-            <View
-                android:id="@+id/viewMediaControlsBg"
+            android:layout_height="match_parent"
+            />
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/player_controls_height"
+                android:layout_height="?attr/actionBarSize"
+                android:outlineProvider="none"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:menu="@menu/main_menu"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/layoutMediaControlsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/player_controls_height_plus10"
                 android:layout_alignParentBottom="true"
-                android:background="?attr/mediaControlsBackground" />
+                android:clickable="true"
+                android:longClickable="true">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_above="@id/viewMediaControlsBg"
-                android:background="@drawable/actionbar_shadow_2x_up" />
+                <View
+                    android:id="@+id/viewMediaControlsBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/player_controls_height"
+                    android:layout_alignParentBottom="true"
+                    android:background="?attr/mediaControlsBackground" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_above="@id/viewMediaControlsBg"
+                    android:background="@drawable/actionbar_shadow_2x_up" />
+
+            </RelativeLayout>
+
+            <include layout="@layout/media_controls_narrow"/>
+            <include layout="@layout/media_controls"/>
 
         </RelativeLayout>
 
-        <include layout="@layout/media_controls_narrow" />
-        <include layout="@layout/media_controls" />
-
     </RelativeLayout>
-</RelativeLayout>
+
+    <!-- DRAWER -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/main_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

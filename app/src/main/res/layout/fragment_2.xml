@@ -45,7 +45,7 @@
         android:id="@+id/viewStatusBarBg"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/status_bar_height"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:background="#00000000" />
 
@@ -53,7 +53,7 @@
         android:id="@+id/viewActionBarBg"
         android:layout_width="56dp"
         android:layout_height="@dimen/actionbar_height"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@id/viewStatusBarBg"
         android:background="#00000000" />
 
@@ -61,7 +61,7 @@
         android:id="@+id/layoutButtons"
         android:layout_width="56dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignWithParentIfMissing="true"
         android:layout_below="@id/viewActionBarBg"
         android:layout_marginBottom="@dimen/player_controls_height"

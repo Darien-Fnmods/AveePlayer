@@ -214,6 +214,7 @@ public class AppPreferences implements SharedPreferences.OnSharedPreferenceChang
 
         if (value == (oldValue == 0))
             onBoolPreferenceChanged.invoke(preference, value);
+
     }
 
     public void setInt(final int preference, final int value) {

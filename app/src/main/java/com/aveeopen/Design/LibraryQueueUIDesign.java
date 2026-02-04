@@ -54,6 +54,7 @@ import com.aveeopen.ContextData;
 import com.aveeopen.MainActivity;
 import com.aveeopen.PlayerCore;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;

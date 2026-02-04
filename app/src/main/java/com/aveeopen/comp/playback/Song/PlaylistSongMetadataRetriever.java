@@ -16,15 +16,18 @@
 
 package com.aveeopen.comp.playback.Song;
 
+
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 
 import com.aveeopen.Common.Utils;
 
+import java.io.IOException;
+
 public class PlaylistSongMetadataRetriever {
 
-    public static PlaylistSong.DataDetails AcquireDataMediaMetadataRetrieverLocal2(Context context, Uri uri, PlaylistSong.Data simpleData) {
+    public static PlaylistSong.DataDetails AcquireDataMediaMetadataRetrieverLocal2(Context context, Uri uri, PlaylistSong.Data simpleData){
         PlaylistSong.DataDetails _data = new PlaylistSong.DataDetails(simpleData);
 
         if (uri == null || uri == Uri.EMPTY) {
@@ -105,7 +108,11 @@ public class PlaylistSongMetadataRetriever {
         if (_data.albumArtist == null) _data.albumArtist = "";
         if (_data.composer == null) _data.composer = "";
 
-        metadataRetriever.release();
+        try {
+            metadataRetriever.release();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         return _data;
     }

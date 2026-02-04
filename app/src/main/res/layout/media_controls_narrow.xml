@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layoutMediaControlsNarrow"
     android:layout_width="match_parent"
     android:layout_height="@dimen/design_height_0"
@@ -18,10 +19,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"
+        app:tint="?attr/buttonColorLight"
         android:src="@drawable/ic_speaker_s" />
 
     <ImageButton
@@ -29,10 +30,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"
+        app:tint="?attr/buttonColorLight"
         android:src="@drawable/ic_overflowh_2_s" />
 
     <ImageButton
@@ -41,19 +42,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/btnMediaControlsOverflow"
+        android:layout_toStartOf="@id/btnMediaControlsOverflow"
         android:background="?android:attr/selectableItemBackground"
-        android:tint="?attr/buttonColorLight"
+        app:tint="?attr/buttonColorLight"
         android:src="@drawable/ic_ctrl_play_s" />
 
     <ImageView
         android:id="@+id/viewOverlayPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnPause"
-        android:layout_alignRight="@+id/btnPause"
+        android:layout_alignStart="@+id/btnPause"
+        android:layout_alignEnd="@+id/btnPause"
         android:layout_centerVertical="true"
-        android:tint="?attr/buttonColorLight"
+        app:tint="?attr/buttonColorLight"
         android:src="@drawable/ic_ctrl_plring" />
 
     <SeekBar
@@ -77,8 +78,8 @@
         android:layout_alignBottom="@id/seekBarSongProgress"
         android:layout_alignTop="@id/seekBarSongProgress"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/btnPause"
-        android:layout_toRightOf="@id/btnVolume"
+        android:layout_toStartOf="@id/btnPause"
+        android:layout_toEndOf="@id/btnVolume"
         android:ellipsize="marquee"
         android:freezesText="true"
         android:marqueeRepeatLimit="marquee_forever"
@@ -87,7 +88,7 @@
         android:paddingRight="8dp"
         android:paddingTop="8dp"
         android:singleLine="true"
-        android:text="title"
+        android:text="@string/titles"
         android:textColor="@color/white_alpha_1"
         android:textSize="@dimen/textSizeM1" />
 

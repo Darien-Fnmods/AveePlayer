@@ -157,7 +157,7 @@ public class MediaStoreUtils {
 
         @Override
         public int getType(int columnIndex) {
-            return 0;
+            return Cursor.FIELD_TYPE_NULL;
         }
 
         @Override
